@@ -1,0 +1,338 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width/height */
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Section */
+.site-header {
+    background-color: #4CAF50; /* Green background for the header */
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; /* Use Flexbox for horizontal alignment */
+    justify-content: space-between; /* Puts space between title and search */
+    align-items: center; /* Vertically centers items */
+}
+
+.site-title {
+    margin: 0;
+    font-size: 2.5em; /* Large font size for the title */
+    font-weight: bold;
+}
+
+.search-box {
+    display: flex; /* Use Flexbox for input and button */
+}
+
+.search-box input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the left */
+    font-size: 1em;
+    width: 200px; /* Fixed width for the search input */
+}
+
+.search-box button {
+    padding: 8px 15px;
+    background-color: #FFC107; /* Yellow search button */
+    color: #333;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.search-box button:hover {
+    background-color: #FFA000; /* Darker yellow on hover */
+}
+
+/* Banner Section */
+.banner {
+    width: 100%;
+    overflow: hidden; /* Ensures the image doesn't overflow its container */
+    margin-bottom: 30px;
+}
+
+.banner img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+}
+
+/* Welcome Section */
+.welcome-section {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-size: 2.2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Image Gallery Section */
+.gallery-section {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+.gallery-container {
+    display: grid; /* Use Grid for responsive gallery layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates equal-width columns that adjust based on screen size */
+    gap: 20px; /* Space between gallery items */
+}
+
+.gallery-item {
+    position: relative; /* Needed for positioning the caption */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    height: 200px; /* Fixed height for gallery items */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure background image covers the area */
+    background-position: center; /* Center the background image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Lift the item slightly on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+/* Specific background images for categories */
+.category-fruits { background-image: url('https://via.placeholder.com/280x200/90EE90/FFFFFF?text=Fruits'); }
+.category-vegetables { background-image: url('https://via.placeholder.com/280x200/ADD8E6/FFFFFF?text=Vegetables'); }
+.category-dairy { background-image: url('https://via.placeholder.com/280x200/FFDDC1/FFFFFF?text=Dairy'); }
+.category-bakery { background-image: url('https://via.placeholder.com/280x200/FFB6C1/FFFFFF?text=Bakery'); }
+.category-meat { background-image: url('https://via.placeholder.com/280x200/DDA0DD/FFFFFF?text=Meat'); }
+.category-pantry { background-image: url('https://via.placeholder.com/280x200/F0E68C/FFFFFF?text=Pantry'); }
+
+.gallery-item .caption {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for caption */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+    opacity: 1; /* Visible on hover */
+}
+
+/* Example captions positioned at different locations */
+/* .gallery-item:nth-child(even) .caption { top: 10px; } */ /* Example: Top position for even items */
+/* .gallery-item:nth-child(odd) .caption { bottom: 10px; } */ /* Example: Bottom position for odd items */
+/* Default to center */
+.gallery-item .caption {
+    transform: translateY(0); /* Default position */
+}
+.gallery-item:hover .caption {
+    transform: translateY(-50%) translateY(0); /* Adjust to desired position on hover if needed, e.g., move up/down */
+}
+
+
+/* Content Sections */
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper {
+    display: flex; /* Use Flexbox for image and text side-by-side */
+    align-items: center; /* Vertically align items in the center */
+    gap: 30px; /* Space between image and text */
+}
+
+.content-section img {
+    max-width: 45%; /* Image takes up less than half the width */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    float: left; /* Float image to the left by default */
+    margin-right: 30px; /* Space to the right of the image */
+    transition: transform 0.3s ease;
+    opacity: 0.9; /* Slightly transparent */
+}
+
+.content-section img:hover {
+    transform: scale(1.02); /* Slightly enlarge image on hover */
+    opacity: 1; /* Fully opaque on hover */
+}
+
+.content-section .text-content {
+    flex: 1; /* Allows text to take up remaining space */
+}
+
+.content-section h3 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Alternating layout for content sections */
+.feature-two .content-wrapper {
+    flex-direction: row-reverse; /* Reverse order for alternating layout */
+}
+
+.feature-two img {
+    float: right; /* Float image to the right */
+    margin-right: 0;
+    margin-left: 30px; /* Space to the left of the image */
+}
+
+/* Footer Section */
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #FFC107; /* Yellow on hover */
+}
+
+/* Responsive Design with Media Queries */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack header items vertically */
+        text-align: center;
+    }
+
+    .site-title {
+        margin-bottom: 15px;
+    }
+
+    .search-box {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-box input {
+        width: 60%;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust gallery columns for smaller screens */
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+    }
+
+    .content-section img,
+    .feature-two img {
+        float: none; /* Remove float for vertical stacking */
+        margin: 0 0 20px 0; /* Add bottom margin */
+        max-width: 80%; /* Adjust image width */
+    }
+
+    .footer-nav {
+        flex-direction: column; /* Stack footer links vertically */
+    }
+
+    .footer-nav a {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 2em;
+    }
+
+    .search-box input {
+        width: 70%;
+    }
+
+    .search-box button {
+        width: 30%;
+    }
+
+    .welcome-section {
+        padding: 20px;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.8em;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+
+    .content-section h3 {
+        font-size: 1.5em;
+    }
+
+    .content-section img {
+        max-width: 90%;
+    }
+}
